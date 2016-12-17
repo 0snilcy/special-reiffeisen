@@ -1,0 +1,44 @@
+@font-face {
+  font-family: 'Futura';
+  font-style: normal;
+  font-weight: 400;
+  src: local('FuturaBookC'),
+    url('../fonts/futura_book.ttf') format('ttf'),
+    url('../fonts/futura_book.eot') format('eot'),
+    url('../fonts/futura_book.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Futura';
+  font-style: normal;
+  font-weight: 700;
+  src: local('FuturaDemiC'),
+    url('../fonts/futura_demi.otf');
+}
+
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  font-style: normal;
+  font-weight: 400;
+  src: local('HelveticaNeueCyr-Medium'),
+    url('../fonts/helveticaneuecyr-medium.woff') format('woff'),
+    url('../fonts/helveticaneuecyr-medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  font-style: normal;
+  font-weight: 700;
+  src: local('HelveticaNeueCyr-Bold'),
+    url('../fonts/helveticaneuecyr-bold.woff') format('woff'),
+    url('../fonts/helveticaneuecyr-bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  font-style: normal;
+  font-weight: 800;
+  src: local('HelveticaNeueCyr-Black'),
+    url('../fonts/helveticaneuecyr-black.woff') format('woff'),
+    url('../fonts/helveticaneuecyr-black.woff2') format('woff2');
+}

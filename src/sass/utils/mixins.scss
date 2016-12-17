@@ -1,0 +1,3 @@
+@function perc($value){
+  @return ($value / 950) * 100%
+}

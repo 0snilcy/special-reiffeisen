@@ -1,0 +1,117 @@
+extends pug/layout/base.pug
+
+block title
+  title Спецпредложение Райффайзен
+
+
+block content
+
+  .container
+
+    .specraif
+      .specraif__symbols
+        include pug/components/symbols
+      .specraif__container
+
+        .specraif__left
+          .specraif__logo
+            img.specraif__pick(src="img/pngspecraif__logo.png")
+
+          .specraif__prev
+            .specraif__desc Тест: Угадайте, чьи это расходы?
+            .specraif__title
+              | Что бы видели писатели на экранах своих гаджетов? Если бы использовали
+              nobr онлайн-банк Райффайзен
+            .specraif__btn
+              button(type="button", data-btn="start") Начать
+
+          .specraif__questions
+            include pug/components/questions
+            each item, index in questions
+              - var i = index + 1;
+              .specraif__item(class="specraif__item--" + i)
+                .specraif__number
+                  span= i
+                  |/5
+                .specraif__title= item.title
+                .specraif__list
+                  each option, index in item.options
+                    - var ind = index + 1;
+                    .specraif__label
+                      input(type="radio", name="question-" + i, id="specraif-" + i + "-" + ind)
+
+                      if option.correct
+                        label(for="specraif-" + i + "-" + ind, data-status="correct")= option.name
+                      else
+                        label(for="specraif-" + i + "-" + ind)= option.name
+                .specraif__btn
+                  button(type="button", data-btn="next") Следующий вопрос
+
+          .specraif__result
+            .specraif__title У вас&nbsp;
+              span.specraif__title-value 0
+              |&nbsp;
+              span.specraif__title-text правильных ответа
+              |&nbsp; из&nbsp;5
+            .specraif__desc Поделиться с друзьями
+            .specraif__socials
+              - var social = [ "vk", "facebook", "twitter"];
+              each item in social
+                a.specraif__social(href="#")
+                  span= item
+                  svg(aria-hidden="true")
+                    use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="#" + item)
+
+        .specraif__right
+          .specraif__tablet
+            img(src="img/phone.png")
+
+            .specraif__wrap
+
+              .specraif__bat
+                .specraif__bat-inner
+
+
+              include pug/components/info
+              each item, index in info
+                - var i = index + 1;
+                .specraif__data(class="questions__data--" + i)
+                  if item.title
+                    .specraif__subtitle= item.title
+                  if item.items
+                    .specraif__sublist
+                      each el in item.items
+                        .specraif__subitem
+                          span= el.title
+                          strong= el.value
+                  if item.result
+                    .specraif__sublist-result
+                      | Текущий баланс:
+
+                      if item.result.currency
+                        span= item.result.value + " " + item.result.currency
+                      else
+                        span= item.result.value
+                          |&nbsp;&#8381;
+                  if item.desc
+                    .specraif__info= item.desc
+
+
+              include pug/components/data
+              each item, index in data
+                - var i = index + 1;
+                .specraif__answer(class="specraif__answer--" + i)
+                  each elem, index in item
+                    - var ind = index + 1;
+                    if elem.correct
+                      .specraif__answer-item.specraif__answer-item--ok(
+                        data-id="specraif-" + i + "-" + ind
+                      )!= elem.title
+                    else
+                      .specraif__answer-item.specraif__answer-item--error(
+                        data-id="specraif-" + i + "-" + ind
+                      )!= elem.title
+
+
+
+
