@@ -49,7 +49,9 @@ gulp.task('copy', function() {
 gulp.task('scripts', function() {
   return gulp.src(path.src.js)
     .pipe(concat('script.js'))
-    // .pipe(uglify())
+    .pipe(gulp.dest(path.build.js))
+    .pipe(rename('script.min.js'))
+    .pipe(uglify())
     .pipe(gulp.dest(path.build.js));
 });
 
