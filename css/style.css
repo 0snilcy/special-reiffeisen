@@ -1187,6 +1187,11 @@ th
     }
 }
 
+[data-btn=next]
+{
+    display: none;
+}
+
 @media (min-width: 768px)
 {
     .specraif__container
