@@ -1,9 +1,9 @@
 var Result = (function() {
-  var resultData = $('.specraif__result');
-  var resultGraph = $('.specraif__bat');
-  var titleValue = $('.specraif__title-value');
-  var titleText = $('.specraif__title-text');
-  var battery = [
+  var resultData = $('.specraif__result'),
+      resultGraph = $('.specraif__bat'),
+      titleValue = $('.specraif__title-value'),
+      titleText = $('.specraif__title-text'),
+      battery = [
     null,
     "specraif__bat-inner--1",
     "specraif__bat-inner--2",

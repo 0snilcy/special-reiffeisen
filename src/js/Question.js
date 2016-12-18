@@ -1,15 +1,15 @@
 var Question = (function() {
-  var questions = $('.specraif__item');
-  var questionsData = $('.specraif__data');
-  var label = $('.specraif__label');
-  var labelActive = 'specraif__label--clicked';
-  var correct = '[data-status="correct"]';
-  var input = $('input[type=radio]');
-  var btnNext = $('[data-btn=next]');
-  var mobile = 768;
-  var count = 0;
-  var result = 0;
-  var elem;
+  var questions = $('.specraif__item'),
+      questionsData = $('.specraif__data'),
+      label = $('.specraif__label'),
+      labelActive = 'specraif__label--clicked',
+      correct = '[data-status="correct"]',
+      input = $('input[type=radio]'),
+      btnNext = $('[data-btn=next]'),
+      mobile = 768,
+      count = 0,
+      result = 0,
+      elem;
 
   return {
     init: function() {

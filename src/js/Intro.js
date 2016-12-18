@@ -1,8 +1,8 @@
 var Intro = (function() {
-  var btnStart = $('[data-btn=start]');
-  var prev = $('.specraif__prev');
-  var parent = $('.specraif');
-  var prevActive = 'specraif--prev';
+  var btnStart = $('[data-btn=start]'),
+      prev = $('.specraif__prev'),
+      parent = $('.specraif'),
+      prevActive = 'specraif--prev';
 
   return {
     init: function() {
