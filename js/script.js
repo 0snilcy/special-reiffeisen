@@ -36,10 +36,10 @@ var Hash = (function() {
 })();
 
 var Intro = (function() {
-  var btnStart = $('[data-btn=start]');
-  var prev = $('.specraif__prev');
-  var parent = $('.specraif');
-  var prevActive = 'specraif--prev';
+  var btnStart = $('[data-btn=start]'),
+      prev = $('.specraif__prev'),
+      parent = $('.specraif'),
+      prevActive = 'specraif--prev';
 
   return {
     init: function() {
@@ -56,17 +56,17 @@ var Intro = (function() {
 })();
 
 var Question = (function() {
-  var questions = $('.specraif__item');
-  var questionsData = $('.specraif__data');
-  var label = $('.specraif__label');
-  var labelActive = 'specraif__label--clicked';
-  var correct = '[data-status="correct"]';
-  var input = $('input[type=radio]');
-  var btnNext = $('[data-btn=next]');
-  var mobile = 768;
-  var count = 0;
-  var result = 0;
-  var elem;
+  var questions = $('.specraif__item'),
+      questionsData = $('.specraif__data'),
+      label = $('.specraif__label'),
+      labelActive = 'specraif__label--clicked',
+      correct = '[data-status="correct"]',
+      input = $('input[type=radio]'),
+      btnNext = $('[data-btn=next]'),
+      mobile = 768,
+      count = 0,
+      result = 0,
+      elem;
 
   return {
     init: function() {
@@ -123,11 +123,11 @@ var Question = (function() {
 })();
 
 var Result = (function() {
-  var resultData = $('.specraif__result');
-  var resultGraph = $('.specraif__bat');
-  var titleValue = $('.specraif__title-value');
-  var titleText = $('.specraif__title-text');
-  var battery = [
+  var resultData = $('.specraif__result'),
+      resultGraph = $('.specraif__bat'),
+      titleValue = $('.specraif__title-value'),
+      titleText = $('.specraif__title-text'),
+      battery = [
     null,
     "specraif__bat-inner--1",
     "specraif__bat-inner--2",
