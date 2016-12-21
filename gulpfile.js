@@ -1,25 +1,41 @@
 'use strict';
 
 var gulp = require('gulp');
-var sass = require('gulp-sass');
-var plumber = require('gulp-plumber');
-var postcss = require('gulp-postcss');
-var autoprefixer = require('autoprefixer');
-var server = require('browser-sync').create();
-var mqpacker = require('css-mqpacker');
-var minify = require('gulp-csso');
+
+// utils
 var rename = require('gulp-rename');
-var imagemin = require('gulp-imagemin');
-var svgmin = require('gulp-svgmin');
-var svgstore = require('gulp-svgstore');
 var run = require('run-sequence');
 var del = require('del');
-var csscomb = require('gulp-csscomb');
-var pug = require('gulp-pug');
-var ghPages = require('gulp-gh-pages');
-var uglify = require('gulp-uglify');
-var concat = require('gulp-concat');
+var server = require('browser-sync').create();
+var plumber = require('gulp-plumber');
 
+// html
+var pug = require('gulp-pug');
+
+// css
+var csscomb = require('gulp-csscomb');
+var minify = require('gulp-csso');
+var mqpacker = require('css-mqpacker');
+var autoprefixer = require('autoprefixer');
+var postcss = require('gulp-postcss');
+var sass = require('gulp-sass');
+
+// js
+var uglify = require('gulp-uglify');
+// var concat = require('gulp-concat');
+var browserify = require('browserify');
+var source = require('vinyl-source-stream');
+var buffer = require('vinyl-buffer');
+
+// image
+var imagemin = require('gulp-imagemin');
+
+// svg
+var svgmin = require('gulp-svgmin');
+var svgstore = require('gulp-svgstore');
+
+// deploy
+var ghPages = require('gulp-gh-pages');
 
 var path = {
     build: {
@@ -27,7 +43,7 @@ var path = {
       img: 'build/img/**/*.{png,jpg,gif}'
     },
     src: {
-      js: 'src/js/*.js'
+      js: 'src/js/app.js'
     },
     copy: {
       font: 'src/fonts/*.{woff,woff2,ttf,eot,otf,pfm,pfb}',
@@ -47,10 +63,10 @@ gulp.task('copy', function() {
 });
 
 gulp.task('scripts', function() {
-  return gulp.src(path.src.js)
-    .pipe(concat('script.js'))
-    .pipe(gulp.dest(path.build.js))
-    .pipe(rename('script.min.js'))
+  return browserify(path.src.js)
+    .bundle()
+    .pipe(source('script.js'))
+    .pipe(buffer())
     .pipe(uglify())
     .pipe(gulp.dest(path.build.js));
 });

@@ -1,19 +1,24 @@
-var Intro = (function() {
-  var btnStart = $('[data-btn=start]'),
-      prev = $('.specraif__prev'),
-      parent = $('.specraif'),
-      prevActive = 'specraif--prev';
+var btnStart = $('[data-btn=start]'),
+    prev = $('.specraif__prev'),
+    parent = $('.specraif'),
+    prevActive = 'specraif--prev';
 
-  return {
-    init: function() {
-      prev.show();
-      parent.addClass(prevActive);
+module.exports = {
+  show: function() {
+    prev.show();
+    parent.addClass(prevActive);
 
-      btnStart.on('click', function(event) {
-        event.preventDefault();
-        $('.' + prevActive).removeClass(prevActive);
-        prev.hide();
-      });
-    }
-  };
-})();
+    btnStart.on('click', function(event) {
+      event.preventDefault();
+      $('.' + prevActive).removeClass(prevActive);
+      prev.hide();
+    });
+  },
+  hide: function() {
+    $('.' + prevActive).removeClass(prevActive);
+    prev.hide();
+  }
+};
+
+
+
